@@ -1,0 +1,24 @@
+{
+  "name": "landing-page",
+  "version": "1.0.0",
+  "description": "Pàgina de entrada para los usuarios que busquen los servicios de Grupo Inkillay",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "inkillay",
+    "sire"
+  ],
+  "author": "Hector Calero Saico",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "hbs": "^4.2.0",
+    "mysql2": "^3.6.2",
+    "nodemailer": "^6.9.6"
+  }
+}
