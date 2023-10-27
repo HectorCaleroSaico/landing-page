@@ -1,3 +1,10 @@
+import Server from './models/Server.js'
+
+const server = new Server()
+
+server.listen()
+
+/*
 import express, { request, response } from 'express'
 import hbs from 'hbs'
 import { URL } from 'url'
@@ -16,8 +23,12 @@ hbs.registerPartials(__dirname + 'views/partials', (err) => {
     console.log(err)
 })
 
+app.use('/public', express.static('public'))
+
 // Servir contenido estàtico
-app.use(express.static('public'))
+//app.set(express.static(path.join(__dirname, 'public')))
+//console.log(path.join(__dirname, 'public'))
+app.use('/public', express.static('public'))
 
 app.get('/', (req = request, res = response) => {
 
@@ -38,3 +49,5 @@ app.listen(process.env.PORT, () => {
     console.log(`Aplicaciòn corriendo en el puerto ${process.env.PORT}`)
     console.log(`Para visitar la pàgina ingresar al siguiente enlace: http://localhost:${process.env.PORT}`)
 })
+*/
+

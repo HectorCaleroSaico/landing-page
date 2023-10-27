@@ -1,80 +1,85 @@
-const express = require('express')
-const cors = require('cors')
-const path = require('path')
-const { serverConfig } = require('../config')
-const locksRouter = require('../routes/lock.routes')
-const userRouter = require('../routes/user.routes')
-const databaseRouter = require('../routes/database.routes')
-const reportRouter = require('../routes/report.route')
+import express, { request, response } from 'express'
+import hbs from 'hbs'
+import { URL } from 'url'
+
+import config from '../config.js'
 
 class Server {
 
     constructor() {
 
+        // Inicializa servidor
         this.app = express()
-        this.port = serverConfig.port
+        this.port = config.server.port
 
+        // Inicializa handlebars
+        this.hbs = hbs
+
+        // Ruta del proyecto
+        this.__dirname = config.server.__dirname
+
+        // COnfigura los middlewares
         this.middlewares()
-        //this.connectDataBase()
 
+        // Enrutamiento del proyecto
         this.routes()
 
-    }
-
-    /*
-    async connectDataBase() {
-
-        /*
-        console.log("Conectando a la base de datos ...")
-
-        return setTimeout(() => {
-
-            console.log("Base de datos SQL Server conectada")
-
-        }, 2000)
-        //
-
-        sqlConnection()
-
-    }*/
-
-    middlewares() {
-
-        //Cors
-        this.app.use(cors(/*{
-            origin: 'http://localhost:5173',
-            optionsSuccessStatus: 200 
-        }*/))
-
-        //Writing and reading body
-        this.app.use(express.json())
-        this.app.use(express.static(path.resolve(__dirname, '../client/dist')))
+        // Servidor en lìnea
+        //this.listen()
 
     }
 
-    routes() {
+    middlewares = () => {
 
-        this.app.use('/api/locks', locksRouter)
-        this.app.use('/api/users', userRouter)
-        this.app.use('/api/databases', databaseRouter)
-        this.app.use('/api/report', reportRouter)
+        console.log(this.__dirname)
 
-        this.app.get('*', (req, res) => {
-            
-            res.sendFile(path.resolve(__dirname, '../client/dist', 'index.html'))
-
+        // View Engine - Handlebars
+        this.hbs.registerPartials(this.__dirname + 'views/partials', (err) => {
+            console.log('<!-- Inicializando partials -->')
+            if (err) console.log(err)
+            console.log('<!-- Fin partials -->')
         })
+        this.app.set('view engine', 'hbs')
+
+        // View Engine - Handlebars Partials
+
+        // Sirve contenido stàtico del directorio public
+        //this.app.use(this.__dirname + '/public', express.static('public'))
+        this.app.use('/public', express.static('public'))
+        //this.app.use(express.static(path.resolve(__dirname, '../public')))
+
     }
 
-    listen() {
+    routes = () => {
+
+        this.app.get('/', (req = request, res = response) => {
+
+            res.render('home', {
+                name: 'Hector Alcides Calero Saico',
+                title: 'Landing Page de Grupo Inkillay'
+            })
+        
+        })
+        
+        this.app.get('*', (req = request, res = response) => {
+            
+            res.render('404')
+        
+        })
+
+    }
+
+    listen = () => {
 
         this.app.listen(this.port, () => {
-            console.log(`Server running in port: ${this.port}`)
-            console.log(`Para acceder al aplicativo: http://localhost:${this.port}`)
+
+            console.log(`Servidor corriendo en el puerto ${this.port}`)
+            console.log(`Para acceder al aplicativo ingresar al siguiente enlace: http://localhost:${this.port}`)
+
         })
 
     }
 
 }
 
-module.exports = Server
+export default Server
