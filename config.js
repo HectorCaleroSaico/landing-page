@@ -9,7 +9,11 @@ export default {
         port: process.env.PORT
     },
     database: {
-        name: '',
-        host: ''
+        hostname: process.env.HOSTNAME,
+        port: process.env.DB_PORT,
+        user: process.env.DB_USER,
+        password: process.env.PASSWORD,
+        databaseName: process.env.DATABASE,
+        timeout: process.env.TIMEOUT
     }
 }
