@@ -38,7 +38,7 @@ const validate = (objectSchema) => (req = request, res = response, next) => {
 
     if (errorCount === 0) return next()
 
-    res.status(200).json(Object.fromEntries(validateResults))
+    res.status(400).json(Object.fromEntries(validateResults))
 
 }
 
