@@ -9,7 +9,7 @@ const postUserRequestInformation = {
         lastName: Joi.string().empty('').default(''),
         email: Joi.string().empty('').default(''),
         countryPhonecodeId: Joi.number().integer().default(0),
-        phone: Joi.string().empty('').default(''),
+        phoneNumber: Joi.string().empty('').default(''),
         cityId: Joi.number().integer().default(0),
         message: Joi.string().empty('').default('')
     })

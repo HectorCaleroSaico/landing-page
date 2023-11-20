@@ -55,6 +55,10 @@ class Server {
 
         this.app.use('/api', routes)
 
+        this.app.get('*', (req = request, res = response) => {
+            res.sendFile(path.resolve(this.__dirname, 'client/dist', 'index.html'))
+        })
+
     }
 
     listen = () => {

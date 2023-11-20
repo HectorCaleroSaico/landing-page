@@ -1,11 +1,12 @@
 import dotenv from 'dotenv'
-import { URL } from 'url'
+import { fileURLToPath } from 'url'
+import path from 'path'
 
 dotenv.config()
 
 export default {
     server: {
-        __dirname: new URL('.', import.meta.url).pathname,
+        __dirname: path.dirname(fileURLToPath(import.meta.url)),
         port: process.env.PORT
     },
     database: {

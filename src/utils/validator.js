@@ -12,8 +12,6 @@ const validate = (objectSchema) => (req = request, res = response, next) => {
 
         if (!error) return [key, { value }]
 
-        //if (!error) return next()
-
         const errors = error.details.map(({ message, context }) => {
 
             const { key, label, value } = context

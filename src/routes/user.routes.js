@@ -6,12 +6,10 @@ import { validate } from '../utils/index.js'
 const router = Router()
 
 router
-    .route('/v1/request/information')
-    .post(
-      validate(UserValidate.postUserRequestInformation),
-      UserController.postUserRequestInformation
-    )
-    
-    //.post('/v1/request/information')
+  .route('/v1/request/information')
+  .post(
+    validate(UserValidate.postUserRequestInformation),
+    UserController.postUserRequestInformation
+  )
 
 export default router

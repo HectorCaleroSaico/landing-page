@@ -9,7 +9,7 @@ const postUserRequestInformation = async (params) => {
         
         const { data } = await db.execute('sp_set_user_information_requests', params)
 
-        return data;
+        return data
 
     } catch (error) {
         
@@ -19,6 +19,40 @@ const postUserRequestInformation = async (params) => {
 
 }
 
+const getUserDocumentTypes = async () => {
+
+    try {
+        
+        const { data } = await db.execute('sp_get_document_types')
+
+        return data
+
+    } catch (error) {
+
+        throw new ApiError(500, error)
+        
+    }
+
+}
+
+const getUserCountriesPhonecodes = async() => {
+
+    try {
+        
+        const { data } = await db.execute('sp_get_countries_phonecodes')
+
+        return data
+
+    } catch (error) {
+
+        throw new ApiError(500, error)
+        
+    }
+
+}
+
 export {
-    postUserRequestInformation
+    postUserRequestInformation,
+    getUserDocumentTypes,
+    getUserCountriesPhonecodes
 }
