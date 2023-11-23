@@ -6,7 +6,7 @@ const configConnection = {
     port: config.database.port,
     user: config.database.user,
     password: config.database.password,
-    database: 'main',
+    database: config.database.databaseName,
     connectionLimit: 1000,
     //connectTimeout: 60 * 60 * 1000,
     connectTimeout: config.database.timeout,
