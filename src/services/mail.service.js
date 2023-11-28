@@ -1,19 +1,26 @@
 import nodemailer from 'nodemailer'
 
 const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
+    //service: 'gmail',
+    host: 'server9.serverpanel.in',
+    port: 465,
+    secure: true,
+    /*auth: {
         type: 'OAuth2',
         user: 'dragonclaw696@gmail.com',
         pass: '28081997slytherin',
         clientId: '556736648785-q2p94jld5feolo1vaoji2eeeu59og1rd.apps.googleusercontent.com',
         clientSecret: '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',
         refreshToken: '1//04CQbVey5Ct0OCgYIARAAGAQSNwF-L9IroFUMKGzrY_5sv0sDgnim-71MhJNr_EaH0ladof7wrd5pCqaqChwwKCwSAlllmwGYa7M'
+    }*/
+    auth: {
+        user: 'informes@grupoinkillay.com',
+        pass: 'GrupoInkillay2023'
     }
 })
 
 const mailOptions = (emailTo, subject, bodyEmail) => ({
-    from: 'dragonclaw696@gmail.com',
+    from: 'informes@grupoinkillay.com',
     to: emailTo,
     subject: subject,
     html: bodyEmail
@@ -44,7 +51,7 @@ const sendEmail = async (data) => {
 
     } catch (err) {
         
-        console.log('Error email: ', err)
+        console.log('Error email: 1', err)
 
         return err
 

@@ -1,11 +1,11 @@
-CREATE DEFINER=`root`@`localhost` FUNCTION `main`.`CUID_19D_B10`() RETURNS bigint unsigned
+CREATE FUNCTION `CUID_19D_B10`() RETURNS bigint unsigned
 BEGIN
 RETURN (((SYSDATE() + 0) * 100000) + MOD(UUID_SHORT(), 100000));
 END;
 
 -- 
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `main`.`sp_get_cities`()
+CREATE PROCEDURE `sp_get_cities`()
 BEGIN
 
 	SELECT 
@@ -17,7 +17,7 @@ END;
 
 --
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `main`.`sp_get_countries_phonecodes`()
+CREATE PROCEDURE `sp_get_countries_phonecodes`()
 BEGIN
 
 	SELECT 
@@ -26,13 +26,12 @@ BEGIN
 		tc.iso2 country_iso2
 	FROM t_countries_phonecodes tcp
 		 INNER JOIN t_countries tc ON tc.country_id = tcp.country_id;
-	-- WHERE tcp.country_id = 166;
 
 END;
 
 --
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `main`.`sp_get_data_emails`(
+CREATE PROCEDURE `sp_get_data_emails`(
 	p_notification_email_type_id TINYINT UNSIGNED,
 	p_data_id BIGINT UNSIGNED
 )
@@ -83,7 +82,7 @@ END;
 
 --
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `main`.`sp_get_document_types`()
+CREATE PROCEDURE `sp_get_document_types`()
 BEGIN
 
 	SELECT 
@@ -96,7 +95,7 @@ END;
 
 --
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `main`.`sp_get_error_logs`()
+CREATE PROCEDURE `sp_get_error_logs`()
     COMMENT 'Obtener errores de los procedimientos almacenados'
 BEGIN
  
@@ -106,7 +105,7 @@ END;
 
 --
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `main`.`sp_set_error_logs`(
+CREATE PROCEDURE `sp_set_error_logs`(
 	p_procedure VARCHAR(255),
 	p_error_log VARCHAR(1024),
 	p_params JSON
@@ -130,7 +129,7 @@ END;
 
 --
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `main`.`sp_set_upload_documents`(
+CREATE PROCEDURE `sp_set_upload_documents`(
 	p_path_file VARCHAR(255)
 )
 BEGIN
@@ -186,7 +185,7 @@ END;
 
 --
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `main`.`sp_set_user_information_requests`(
+CREATE PROCEDURE `sp_set_user_information_requests`(
 	p_document_type_id TINYINT UNSIGNED,
 	p_document VARCHAR(12),
 	p_business_name VARCHAR(150),
@@ -232,9 +231,9 @@ BEGIN
 
 	START TRANSACTION;
 
-		SET v_new_user_information_request_id = main.CUID_19D_B10();
+		SET v_new_user_information_request_id = CUID_19D_B10();
 
-		INSERT INTO main.t_user_information_requests (
+		INSERT INTO t_user_information_requests (
 			user_information_request_id,
 			document_type_id,
 			document,
@@ -268,7 +267,7 @@ BEGIN
 			user_id,
 			`data`
 		) VALUES (
-			main.CUID_19D_B10(),
+			CUID_19D_B10(),
 			1,
 			2,
 			p_email,

@@ -35,6 +35,8 @@ const postUserRequestInformation = async (req = request, res = response) => {
 
     const sender = await EmailService.sendEmail(notification[0])
 
+    console.log(sender)
+
     if (!sender.messageId) {
 
         return res.status(404)
