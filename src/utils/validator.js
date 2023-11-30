@@ -1,4 +1,6 @@
-import {request, response} from 'express'
+//import {request, response} from 'express'
+
+const { request, response } = require('express')
 
 const validate = (objectSchema) => (req = request, res = response, next) => {
 
@@ -40,4 +42,5 @@ const validate = (objectSchema) => (req = request, res = response, next) => {
 
 }
 
-export default validate
+//export default validate
+module.exports = validate

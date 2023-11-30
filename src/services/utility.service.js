@@ -1,5 +1,10 @@
+/*
 import DB from '../models/Database.js'
 import { ApiError } from '../utils/index.js';
+*/
+
+const DB = require('../models/Database')
+const { ApiError } = require('../utils/index')
 
 const db = new DB()
 
@@ -51,7 +56,15 @@ const getCities = async() => {
 
 }
 
+/*
 export {
+    getDocumentTypes,
+    getCountriesPhonecodes,
+    getCities
+}
+*/
+
+module.exports = {
     getDocumentTypes,
     getCountriesPhonecodes,
     getCities

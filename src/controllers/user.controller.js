@@ -1,5 +1,10 @@
+/*
 import { request, response } from 'express'
 import { UserService, EmailService, NotificationService } from '../services/index.js'
+*/
+
+const { request, response } = require('express')
+const { UserService, EmailService, NotificationService } = require('../services/index')
 
 const postUserRequestInformation = async (req = request, res = response) => {
 
@@ -47,6 +52,12 @@ const postUserRequestInformation = async (req = request, res = response) => {
 
 }
 
+/*
 export {
+    postUserRequestInformation
+}
+*/
+
+module.exports = {
     postUserRequestInformation
 }

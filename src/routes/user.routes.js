@@ -1,7 +1,14 @@
-import { Router } from 'express'
+/*import { Router } from 'express'
 import { UserController } from '../controllers/index.js'
 import { UserValidate } from '../validates/index.js'
 import { validate } from '../utils/index.js'
+*/
+
+const { Router } = require('express')
+const { UserController } = require('../controllers/index')
+const { UserValidate } = require('../validates/index')
+const { validate } = require('../utils/index')
+
 
 const router = Router()
 
@@ -12,4 +19,5 @@ router
     UserController.postUserRequestInformation
   )
 
-export default router
+//export default router
+module.exports = router

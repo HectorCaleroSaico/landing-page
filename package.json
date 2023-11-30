@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Pàgina de entrada para los usuarios que busquen los servicios de Grupo Inkillay",
   "main": "app.js",
-  "type": "module",
   "scripts": {
     "dev": "nodemon app.js",
     "start": "node app.js",

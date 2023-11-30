@@ -1,8 +1,16 @@
-import express, { request, response } from 'express'
+const express = require('express')
+const { request, response } = require('express')
+const routes = require('../routes/index')
+const cors = require('cors')
+const config = require('../../config')
+const path = require('path')
+
+/*import express, { request, response } from 'express'
 import routes from '../routes/index.js'
 import cors from 'cors'
 import config from '../../config.js'
 import path from 'path'
+*/
 
 class Server {
 
@@ -74,4 +82,5 @@ class Server {
 
 }
 
-export default Server
+//export default Server
+module.exports = Server

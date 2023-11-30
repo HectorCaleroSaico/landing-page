@@ -1,5 +1,8 @@
-import mysql2 from 'mysql2/promise.js'
-import config from '../../config.js'
+//import mysql2 from 'mysql2/promise.js'
+//import config from '../../config.js'
+
+const mysql2 = require('mysql2/promise')
+const config = require('../../config')
 
 const configConnection = {
     host: config.database.hostname,
@@ -92,4 +95,5 @@ class DB {
 
 }
 
-export default DB
+//export default DB
+module.exports = DB

@@ -1,5 +1,10 @@
+/*
 import { Router } from 'express'
 import { UtilityController } from '../controllers/index.js'
+*/
+
+const { Router } = require('express')
+const { UtilityController } = require('../controllers/index')
 
 const router = Router()
 
@@ -21,4 +26,5 @@ router
     UtilityController.getCities
   )
 
-export default router
+//export default router
+module.exports = router

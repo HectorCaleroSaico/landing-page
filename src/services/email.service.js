@@ -1,4 +1,6 @@
-import nodemailer from 'nodemailer'
+//import nodemailer from 'nodemailer'
+
+const nodemailer = require('nodemailer')
 
 const transporter = nodemailer.createTransport({
     //service: 'gmail',
@@ -16,11 +18,13 @@ const transporter = nodemailer.createTransport({
     auth: {
         user: 'informes@grupoinkillay.com',
         pass: 'k(JHc~JN.59i'
+        //user: 'hector.calero@grupoinkillay.com',
+        //pass: '28081997Hc@'
     }
 })
 
 const mailOptions = (emailTo, subject, bodyEmail) => ({
-    from: 'informes@grupoinkillay.com',
+    from: 'hector.calero@grupoinkillay.com',
     to: emailTo,
     subject: subject,
     html: bodyEmail
@@ -70,6 +74,12 @@ const sendEmail = async (data) => {
 
 }
 
+/*
 export {
+    sendEmail
+}
+*/
+
+module.exports = {
     sendEmail
 }

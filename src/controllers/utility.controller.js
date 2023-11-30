@@ -1,5 +1,10 @@
+/*
 import { request, response } from 'express'
 import { UitilityService } from '../services/index.js'
+*/
+
+const { request, response } = require('express')
+const { UitilityService } = require('../services/index')
 
 const getDocumentTypes = async (req = request, res = response) => {
 
@@ -43,8 +48,15 @@ const getCities = async (req = request, res = response) => {
 
 }
 
-
+/*
 export {
+    getDocumentTypes,
+    getCountriesPhonecodes,
+    getCities
+}
+*/
+
+module.exports = {
     getDocumentTypes,
     getCountriesPhonecodes,
     getCities

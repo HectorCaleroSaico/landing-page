@@ -1,4 +1,5 @@
-import Joi from 'joi'
+//import Joi from 'joi'
+const Joi = require('joi')
 
 const postUserRequestInformation = {
     body: Joi.object({
@@ -15,6 +16,12 @@ const postUserRequestInformation = {
     })
 }
 
+/*
 export {
+    postUserRequestInformation
+}
+*/
+
+module.exports = {
     postUserRequestInformation
 }
