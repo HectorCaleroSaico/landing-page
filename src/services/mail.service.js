@@ -2,7 +2,7 @@ import nodemailer from 'nodemailer'
 
 const transporter = nodemailer.createTransport({
     //service: 'gmail',
-    host: 'server9.serverpanel.in',
+    host: 'mail.grupoinkillay.com',
     port: 465,
     secure: true,
     /*auth: {
@@ -15,7 +15,7 @@ const transporter = nodemailer.createTransport({
     }*/
     auth: {
         user: 'informes@grupoinkillay.com',
-        pass: 'GrupoInkillay2023'
+        pass: 'k(JHc~JN.59i'
     }
 })
 

@@ -32,12 +32,12 @@ class DB {
 
             if (params && !(params instanceof Object)) throw new Error('The Params must be object')
             
-            const [responseCollation, responseSQLMode] = await Promise.all([
-                conn.execute(`SET collation_connection = 'utf8mb4_0900_ai_ci';`),
+            /*const [responseCollation, responseSQLMode] = await Promise.all([
+                conn.execute(`SET collation_connection = 'utf8mb4_general_ci';`),
                 conn.execute(`SET sql_mode = 'STRICT_TRANS_TABLES';`)
-            ])
+            ])*/
     
-            if (responseCollation && responseSQLMode) {
+            //if (responseCollation && responseSQLMode) {
                 
                 const paramsKeys = params ? Object.keys(params).map(value => '?') : []
                 const paramsValues = params ? Object.values(params) : []
@@ -58,14 +58,14 @@ class DB {
                     rowsAffected: rows[0] ? rows[0].length : 0
                 };
     
-            }
+            /*}
 
             await conn.end()
         
             return {
                 responseCollation,
                 responseSQLMode
-            }
+            }*/
 
         } catch (error) {
 
